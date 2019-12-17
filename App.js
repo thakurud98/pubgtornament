@@ -11,6 +11,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log("states in app.js")
     return (
       <View style={styles.container}>
         <Text>Welcome to pubg mobile app</Text>
