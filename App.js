@@ -1,34 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet,TextInput, Text, View } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import LoginScreen from './contaniner/Login'
+import HomeScreen from './contaniner/Home'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-        email: '',
-        password: ''
-    }
-  }
-
-  render() {
-    console.log("states in app.js")
-    return (
-      <View style={styles.container}>
-        <Text>Welcome to pubg mobile app</Text>
-        <Text>Email</Text>
-        <TextInput placeholder="Email"  onChangeText={(text) => this.setState({email : text})}/>
-        <Text>Password</Text>
-        <TextInput placeholder="Password" type="password"  onChangeText={(text) => this.setState({password : text})}/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  // Profile: {screen: ProfileScreen},
+  Login: {screen : LoginScreen}
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
